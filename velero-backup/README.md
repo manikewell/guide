@@ -6,7 +6,7 @@ This guide explains how to install, configure, and use Velero to back up Kuberne
 
 ## ✅ Prerequisites
 
-- A Kubernetes cluster (v1.20+ recommended)
+- A Kubernetes cluster (v1.20+)
 - `kubectl` aand `helm` installed and configured
 - A HCP S3 object storage
 
@@ -15,12 +15,14 @@ This guide explains how to install, configure, and use Velero to back up Kuberne
 ## 📥 Installation
 
 1. Add the Velero Helm repo
+
    ```
    helm repo add vmware-tanzu https://vmware-tanzu.github.io/helm-charts
    helm repo update
    ```
-
+   
 2. Install Velero
+
 ```
 helm install velero vmware-tanzu/velero \
   --namespace velero \
@@ -32,50 +34,58 @@ helm install velero vmware-tanzu/velero \
   --set configuration.backupStorageLocation.config.region=<REGION>
   ```
 
-Check that Velero pods are running:
+3. Check that Velero pods are running
+
 ```
 kubectl get pods -n velero
 ```
 
-
 ## 💾 Creating a Backup
-To back up a specific namespace:
+
+1. To back up a specific namespace
+
 ```
 velero backup create my-backup --include-namespaces my-namespace
 ```
 
-To back up the entire cluster:
+2. To back up the entire cluster
+
 ```
 velero backup create cluster-backup
 ```
 
-Verify backups:
+3. Verify backups
+
 ```
 velero backup get
 ```
 
-
 ## 📅 Scheduling Backups
 
-To create a daily backup schedule at 2 AM:
+1. To create a daily backup schedule at 2 AM
 
+```
 velero schedule create daily-backup \
   --schedule="0 2 * * *" \
   --include-namespaces my-namespace
+```
 
+2. List schedules
 
-List schedules:
-
+```
 velero schedule get
-
+```
 
 ## 🔄 Restoring Backups
 
-Restore from a backup:
+1. Restore from a backup
 
+```
 velero restore create --from-backup my-backup
+```
 
+2. List restores
 
-List restores:
-
+```
 velero restore get
+```
