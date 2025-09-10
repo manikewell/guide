@@ -14,18 +14,17 @@ Each guide is self-contained inside its own folder with a `README.md` and suppor
 
 ## 🗂 Repository Structure
 
+```text
 guides/
-├── README.md # Overview and index of all guides
-├── velero-backup/ # Velero backup guide
-│ ├── README.md
-│ └── images/
-│ └── .gitkeep
-└── ingress-nginx-upgrade/ # Ingress upgrade guide
-├── README.md
-└── images/
-└── .gitkeep
-
----
+├── README.md                  # Overview and index of all guides
+├── velero-backup/             # Velero backup guide
+│   ├── README.md
+│   └── images/
+│       └── .gitkeep
+└── ingress-nginx-upgrade/     # Ingress upgrade guide
+    ├── README.md
+    └── images/
+        └── .gitkeep
 
 ## 🔧 Contributing
 
