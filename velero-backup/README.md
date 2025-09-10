@@ -37,7 +37,8 @@ Check that Velero pods are running:
 kubectl get pods -n velero
 ```
 
-3. 💾 Creating a Backup
+
+## 💾 Creating a Backup
 To back up a specific namespace:
 ```
 velero backup create my-backup --include-namespaces my-namespace
@@ -53,7 +54,8 @@ Verify backups:
 velero backup get
 ```
 
-4. 📅 Scheduling Backups
+
+## 📅 Scheduling Backups
 
 To create a daily backup schedule at 2 AM:
 
@@ -66,7 +68,8 @@ List schedules:
 
 velero schedule get
 
-5. 🔄 Restoring Backups
+
+## 🔄 Restoring Backups
 
 Restore from a backup:
 
